@@ -1,7 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { Headers, RequestOptions, Http } from '@angular/http'
-import 'rxjs/add/operator/map'
+import { Http } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the DataProvider provider.
@@ -9,18 +10,22 @@ import 'rxjs/add/operator/map'
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
 @Injectable()
 export class DataProvider {
 
   //API key
-  headers = new Headers({'X-Mashape-Key': '585c39601d3c47209ba19abb0886f9b3'});
+  headers = new Headers({'user-key': 'c75362fdc828b2777df55045c4b55368', 'Accept': 'application/json'});
   
   //For requests for ex. get games etc
   options = new RequestOptions({ headers: this.headers });
 
+  apiURL = 'https://api-endpoint.igdb.com';
+  
   //limit results to 50
-  limit: number = 50;
-  constructor(public _http: Http) {
+  limit:number = 50;
+
+  constructor(public http: Http) {
     console.log('Hello DataProvider Provider');
   }
 
@@ -28,8 +33,10 @@ export class DataProvider {
     let genre_id = genre;
     let offset = offset_num;
 
-    return this._http.get('https://api-endpoint.igdb.com/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=' + offset + '&order=release_dates.date:desc&filter[genres][eq]=' + genre_id + '&filter[screenshots][exists]', this.options)
-      .map(res => res.json());
+    return this.http.get(this.apiURL + '/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=' + offset + '&order=release_dates.date:desc&filter[genres][eq]=' + genre_id + '&filter[screenshots][exists]', this.options)
+      .map(response => response.json());
+
+    
       
   }
 }

@@ -4,5 +4,9 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "api_header": {
+      "header": "Access-Control-Allow-Origin",
+      "value": "localhost:8100"
+    }
 }
