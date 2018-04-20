@@ -1,3 +1,16 @@
-page-home {
 
+$secondary: #066B52;
+
+ion-header {
+    .btn-txt ion-icon {
+        margin-right: 7px;
+    }
+    .btn-txt {
+        background: $secondary;
+    }
+
+    #logo {
+        width: 45px;
+        margin-top: 3px;
+    }
 }

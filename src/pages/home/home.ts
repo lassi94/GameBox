@@ -20,7 +20,7 @@ export class HomePage {
   //The object that the homepage is going to catch. In this case the API returns
   //a array of objects of the games
 
-  games = [];
+  games: Object;
   genre: any;
   genreName: string = "Upcoming Games";
   favorites = [];
@@ -63,6 +63,7 @@ export class HomePage {
     getGames() {
       this._data.getGames(this.genre, 0)
         .subscribe(res => this.games = res);
+        console.log(this.games);
   }
 
     
