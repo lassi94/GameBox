@@ -41,20 +41,20 @@
 
       <ng-template #noscreen>
           <div class="game-image">
-            <img src="assets.imgs/default.jpg">
+            <img src="assets/imgs/default.jpg">
           </div>
         </ng-template>
 
         <div *ngIf="favorites.indexOf(game.id) == -1; then fav else remove"></div>
 
         <ng-template #fav>
-          <button ion-button outline medium color="primary"icon-only (click)="favorite(game.id)">
+          <button ion-button outline medium color="primary" icon-only (click)="favorite(game.id)">
             <ion-icon name="star"></ion-icon>
           </button>
         </ng-template>
 
         <ng-template #remove>
-            <button ion-button outline medium color="primary"icon-only (click)="favorite(game.id)">
+            <button ion-button outline medium color="primary" icon-only (click)="favorite(game.id)">
               <ion-icon name="close"></ion-icon>
             </button>
         </ng-template>

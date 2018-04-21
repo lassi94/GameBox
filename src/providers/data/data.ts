@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -15,12 +15,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataProvider {
 
+
   result: any;
   //API key
   createAutHeaders(){
-    var headers = new HttpHeaders()
-      .set('user-key', 'c75362fdc828b2777df55045c4b55368')
-      .set('Accept', 'application/json');
+    const headers = new HttpHeaders()
+      .append('Access-Control-Allow-Origin','*')
+      .append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT')
+      .set('user-key', 'c75362fdc828b2777df55045c4b55368');
 
       return headers
   }
@@ -34,8 +36,8 @@ export class DataProvider {
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
   }
-
-  public getGames(genre, offset_num){
+  
+  getGames(genre, offset_num){
     let genre_id = genre;
     let offset = offset_num;
 
@@ -43,7 +45,7 @@ export class DataProvider {
       headers: this.createAutHeaders()
     };
 
-    return this.http.get(this.apiURL + '/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=' + offset + '&order=release_dates.date:desc&filter[genres][eq]=' + genre_id + '&filter[screenshots][exists]', options)
+    return this.http.get('/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=' + offset + '&order=release_dates.date:desc&filer[genres][eq]=' + genre_id + '&filter[screenshots][exists]', options)
       .map(result => this.result = result);
   }
 }

@@ -59,11 +59,11 @@ export class HomePage {
 
     })
     }
-
+    
     getGames() {
       this._data.getGames(this.genre, 0)
         .subscribe(res => this.games = res);
-        console.log(this.games);
+        
   }
 
     
