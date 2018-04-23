@@ -48,4 +48,16 @@ export class DataProvider {
     return this.http.get('/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=' + offset + '&order=release_dates.date:desc&filer[genres][eq]=' + genre_id + '&filter[screenshots][exists]', options)
       .map(result => this.result = result);
   }
+
+  getFavorites(favs){
+    let favorites = favs;
+    favorites = favorites.join();
+
+    var options = {
+      headers: this.createAutHeaders()
+    };
+
+    return this.http.get('/games/'+ favorites + '/?fields=name,release_dates,screenshots&order=release_dates.date:desc&filter[screenshots][exists]', options)
+      .map(result => this.result = result);
+  }
 }

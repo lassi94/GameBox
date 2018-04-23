@@ -9,12 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { DataProvider } from '../providers/data/data';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { GenresPage } from '../pages/genres/genres';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    GenresPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { IonicStorageModule } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    GenresPage
   ],
   providers: [
     StatusBar,
