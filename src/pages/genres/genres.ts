@@ -18,7 +18,7 @@ import { DataProvider } from '../../providers/data/data';
 })
 export class GenresPage {
 
-  genres: Array<Object>
+  genres: Object
   currentGenre: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private _storage: Storage, public viewControl: ViewController, private _data: DataProvider) {
   

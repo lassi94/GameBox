@@ -40,7 +40,7 @@ export class HomePage {
           this.genreName = val.name;
           
         } else{
-          this.genre = 2;
+          this.genre = 5;
           this.genreName = "Shooter";
           this._storage.set('genre', this.genre);
         }
@@ -120,7 +120,10 @@ export class HomePage {
         });
       }
 
-      loader.dismiss();
+      setTimeout(() => {
+        loader.dismiss();
+      }, 1200);
+
     });
 
     myModal.present();

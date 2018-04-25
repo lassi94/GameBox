@@ -9,6 +9,10 @@
     {
       "path": "/games",
       "proxyUrl": "https://api-endpoint.igdb.com/games"
+    },
+    {
+      "path": "/genres",
+      "proxyUrl": "https://api-endpoint.igdb.com/genres"
     }
   ]
  
