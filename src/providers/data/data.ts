@@ -60,4 +60,14 @@ export class DataProvider {
     return this.http.get('/games/'+ favorites + '/?fields=name,release_dates,screenshots&order=release_dates.date:desc&filter[screenshots][exists]', options)
       .map(result => this.result = result);
   }
+
+  getGenres(){
+
+    var options = {
+      headers: this.createAutHeaders()
+    };
+
+    return this.http.get('/genres/?fields=*', options)
+      .map(result => this.result = result);
+  }
 }
