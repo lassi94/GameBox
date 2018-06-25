@@ -10,7 +10,7 @@ import { DataProvider } from '../providers/data/data';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { GenresPage } from '../pages/genres/genres';
-
+import { Keyboard } from '@ionic-native/keyboard';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { GenresPage } from '../pages/genres/genres';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    DataProvider,
+    Keyboard
   ]
 })
 export class AppModule {}

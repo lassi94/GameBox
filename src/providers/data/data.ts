@@ -70,4 +70,17 @@ export class DataProvider {
     return this.http.get('/genres/?fields=*', options)
       .map(result => this.result = result);
   }
+
+  searchGames(term){
+
+    let _term = term;
+
+    var options = {
+      headers: this.createAutHeaders()
+    };
+
+    return this.http.get('/games/?fields=name,release_dates,screenshots&limit=' + this.limit + '&offset=0&order=release_dates.date:desc&search=' + _term, options)
+      .map(result => this.result = result);
+
+  }
 }

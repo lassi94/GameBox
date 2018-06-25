@@ -29,6 +29,9 @@
 </ion-header>
 
 <ion-content class="card-background-page">
+
+  <ion-searchbar (search)="search($event.target.value)" [ngClass]="{ 'show-search': showSearch }"></ion-searchbar>
+
   <div *ngIf="games">
     <ion-card *ngFor="let game of games">
       <div *ngIf="game.screenshots; then gamescreen else noscreen"></div>
