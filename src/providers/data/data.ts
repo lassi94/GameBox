@@ -71,6 +71,30 @@ export class DataProvider {
       .map(result => this.result = result);
   }
 
+  getGame(game){
+    let game_id = game
+    
+    var options = {
+      headers: this.createAutHeaders()
+    };
+
+    return this.http.get('/games/' + game_id + '?fields=*', options)
+      .map(result => this.result = result);
+
+  }
+
+  getPerspective(perspec){
+
+    let perspective = perspec;
+
+    var options = {
+      headers: this.createAutHeaders()
+    };
+
+    return this.http.get('/player_perspectives/' + perspective +'?fields=*', options)
+      .map(result => this.result = result);
+  }
+
   searchGames(term){
 
     let _term = term;

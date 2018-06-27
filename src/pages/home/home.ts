@@ -4,6 +4,7 @@ import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
 import { GenresPage } from '../genres/genres';
 import { Keyboard } from '@ionic-native/keyboard';
+import { DetailsPage } from '../details/details';
 
 /**
  * Generated class for the HomePage page.
@@ -145,6 +146,12 @@ export class HomePage {
     this.showSearch = false;
     this._data.searchGames(search_term)
       .subscribe(res => this.games = res);
+  }
+
+  detailsPage(game){
+    this.navCtrl.push(DetailsPage, {
+      game: game
+    })
   }
 
     ionViewDidLoad() {
